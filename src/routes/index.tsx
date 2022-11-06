@@ -1,5 +1,4 @@
 import React from 'react';
-import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useTheme } from 'styled-components';
@@ -28,7 +27,8 @@ export default function Routes() {
       tabBarActiveTintColor: theme.colors.Blue_1,
       tabBarInactiveTintColor: theme.colors.Gray_Dark,
       tabBarStyle: {
-        paddingVertical: Platform.OS === 'ios' ? 20 : 0,
+        paddingVertical: 20,
+        paddingBottom: 16,
         height: 85,
       }
     }}>
