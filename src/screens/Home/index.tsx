@@ -1,8 +1,8 @@
 import React from 'react';
 import { StatusBar, StyleSheet } from 'react-native';
-import { Feather } from '@expo/vector-icons';
 
 import { Categories } from '../../Components/Categories';
+import { Slider } from '../../Components/Slider';
 
 import LogoSvg from '../../assets/logo.svg';
 
@@ -20,6 +20,7 @@ import {
   CategoriesViewAllButton,
   CategoriesViewAllTitle
 } from './styles';
+import { Carousel } from '../../Components/Carousel';
 
 export function Home(){
   return (
@@ -49,6 +50,25 @@ export function Home(){
           <Categories name={'Online'} icon={'wifi'} />
         </CategoriesViewAll>
       </CategoriesSection>
+
+      {/* <Slider 
+        imageUrl = {
+          [
+            {id: '1', photo: 'https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png'},
+            {id: '2', photo: 'https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png'},
+            {id: '3', photo: 'https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png'},
+          ]
+        } 
+      /> */}
+      <Carousel 
+        images = {
+          [
+            {id: '1', photo: 'https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png'},
+            {id: '2', photo: 'https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png'},
+            {id: '3', photo: 'https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png'},
+          ]
+        } 
+      />
     </Container>
   );
 }

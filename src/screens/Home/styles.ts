@@ -73,8 +73,7 @@ export const CategoriesViewAllTitle = styled.Text`
 export const CategoriesViewAll = styled.ScrollView.attrs({
   horizontal: true,
   showsHorizontalScrollIndicator: false,
-  contentContainerStyle: {paddingHorizontal: 24},
-})`
-  width: 100%;
-  flex-direction: row;
-`;
+  contentContainerStyle: {
+    paddingHorizontal: 24
+  },
+})``;
