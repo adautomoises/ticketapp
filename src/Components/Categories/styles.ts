@@ -28,12 +28,13 @@ export const Category = styled.View`
 export const CategoryButton = styled(BorderlessButton)``;
 
 export const Icon = styled(Feather)`
-    color: black;
-    font-size: ${RFValue(48)}px;
+  color: ${({theme}) => theme.colors.Gray_Black};;
+  font-size: ${RFValue(48)}px;
 `;
+
 export const Text = styled.Text`
   font-family: ${({theme}) => theme.fonts.Poppins_400};
   font-size: ${RFValue(10)}px;
   line-height: ${RFValue(15)}px;
-  color: black;
+  color: ${({theme}) => theme.colors.Gray_Black};;
 `;

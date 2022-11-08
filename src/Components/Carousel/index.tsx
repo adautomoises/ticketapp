@@ -2,13 +2,13 @@ import React from 'react';
 import {
   Animated,
   Dimensions,
-  StyleSheet,
-  View
+  StyleSheet
 } from 'react-native';
 
 import { Bullet } from '../Bullet';
 
 import {
+  Container,
   ImageWrapper,
   Image,
   ImageIndexes,
@@ -39,8 +39,6 @@ export function Carousel({ images } : Props){
 
   const handleAnimationLeft = () => {
     let newCurrentImage = currentImage - 1;
-    console.log(newCurrentImage);
-    console.log(images.length);
 
     if(newCurrentImage < 0){
       newCurrentImage = images.length - 1;
@@ -70,8 +68,7 @@ export function Carousel({ images } : Props){
   };
 
   return (
-    <>
-      <View>
+      <Container>
         <Animated.View
           style={[
             styles.container,
@@ -81,17 +78,17 @@ export function Carousel({ images } : Props){
           ]}>
           {images.map(
             (item) => (
-              <ImageWrapper>
+              <ImageWrapper key={item.id}>
                 <Image 
                   key={item.id}
                   source={{uri: item.photo}} 
                   style={styles.image} 
                 />
                 <ContainerTitle>
-                  <Title>TÍTULO DO EVENTO</Title>
+                  <Title>%TEXTO DE EXEMPLO%</Title>
                 </ContainerTitle>
                 <ContainerSubTitle>
-                  <SubTitle>BLA BLA BLA</SubTitle>
+                  <SubTitle>%TEXTO DE EXEMPLO%</SubTitle>
                 </ContainerSubTitle>
               </ImageWrapper>
           ))}
@@ -116,8 +113,7 @@ export function Carousel({ images } : Props){
             <IconScrollRight name={'chevron-right'} />
           </ScrollRight>
         </ContainerButtonRight>
-      </View>
-    </>
+      </Container>
   );
 };
 

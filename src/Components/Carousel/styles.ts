@@ -2,14 +2,16 @@ import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Dimensions } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
-  flex: 1;
+  margin-top: 23px;
 `;
 
-export const ImageWrapper = styled.View`
+export const ImageWrapper = styled(RectButton)`
   justify-content: center;
   align-items: center;
+  background-color: red;
 `;
 
 export const Image = styled.Image`
