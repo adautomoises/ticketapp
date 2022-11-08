@@ -33,7 +33,6 @@ export function Login(){
   };
 
   return (
-    <KeyboardAvoidingView behavior='height' enabled>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <Container>
           <StatusBar 
@@ -67,6 +66,5 @@ export function Login(){
           </Footer>
         </Container>
       </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
   );
 }

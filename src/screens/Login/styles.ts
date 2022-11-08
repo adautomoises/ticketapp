@@ -32,39 +32,12 @@ export const HeaderSubTitle = styled.Text`
   color: ${({theme}) => theme.colors.Gray_Black};
 `;
 
-
 export const Form = styled.View`
   width: ${RFValue(300)}px;
   height: ${RFValue(320)}px;
 
   justify-content: center;
   align-items: center;
-`;
-
-export const FormInputLogin = styled(TextInput)`
-  width: ${RFValue(300)}px;
-  height: ${RFValue(50)}px;
-  font-size: ${RFValue(16)}px;
-
-  padding: 16px;
-  padding-left: 32px;
-  margin-bottom: 8px;
-  border-width: 1px;
-  border-radius: ${RFValue(10)}px;
-  background-color: white;
-`;
-
-export const FormInputPassword = styled(TextInput)`
-  width: ${RFValue(300)}px;
-  height: ${RFValue(50)}px;
-  font-size: ${RFValue(16)}px;
-
-  padding: 16px;
-  padding-left: 32px;
-  margin-bottom: 8px;
-  border-width: 1px;
-  border-radius: ${RFValue(10)}px;
-  background-color: white;
 `;
 
 export const Button = styled(RectButton)`
