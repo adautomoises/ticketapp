@@ -3,9 +3,10 @@ import { View } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import { ThemeProvider } from 'styled-components';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import theme from './src/styles/theme';
-import Routes from './src/routes';
+import { Routes } from './src/routes';
 
 import {
   useFonts,
@@ -32,8 +33,12 @@ export default function App() {
 
   if(!fontsLoaded){
     return (
-      <View style={{flex: 1, backgroundColor: theme.colors.Blue_1}}>
-      </View>
+      <LinearGradient 
+        colors={
+          [`${theme.colors.Blue_1}`, `${theme.colors.Blue_2}`]
+        }
+      >
+      </LinearGradient>
     )
   }  
   return (
