@@ -1,5 +1,6 @@
 import React from 'react';
-import { StatusBar, StyleSheet } from 'react-native';
+import * as Yup from 'yup'
+import { StatusBar, StyleSheet, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 
@@ -42,7 +43,7 @@ import {
 
 export function Login(){
   const navigation = useNavigation();
-  const [ name, setName ] = React.useState('');
+  const [ email, setEmail ] = React.useState('');
   const [ password, setPassword ] = React.useState('');
 
   function handleSignIn(){
@@ -51,6 +52,29 @@ export function Login(){
   function handleSignUp(){
     navigation.navigate('InitialHome');
   };
+
+  async function VerificationSignIn(){
+    try {
+      const schema = Yup.object().shape({
+        password: Yup.string()
+        .required('A senha é obrigatória'),
+        email: Yup.string()
+          .required('E-mail obrigatório')
+          .email('Digite um e-mail válido'),
+      });
+      
+      await schema.validate({ email, password });
+      handleSignIn();
+
+    } catch (error) {
+      if(error instanceof Yup.ValidationError){
+        return Alert.alert('Opa', error.message)
+      } else {
+        Alert.alert('Erro na autenticação','Ocorreu um erro ao fazer login, verifique as credenciais')
+      }
+    }
+
+  }
 
   return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -74,8 +98,8 @@ export function Login(){
             <Input 
               iconName={'mail'} 
               placeholder={'Usuário'}
-              onChangeText={setName}
-              value={name}  
+              onChangeText={setEmail}
+              value={email}  
             />
             <PasswordInput 
               iconName={'lock'} 
@@ -89,7 +113,7 @@ export function Login(){
               </ForgotPassword>
             </ContainerForgotPassword>
             <ButtonSignIn 
-              onPress={handleSignIn} 
+              onPress={VerificationSignIn} 
               // style={styles.DropShadow}
             >
               <ButtonSignInText>Entrar</ButtonSignInText>
