@@ -23,6 +23,8 @@ interface Props {
   imageUrl: {
     id: string;
     photo: string;
+    title: string;
+    subtitle: string;
   }[];
 }
 
@@ -52,10 +54,10 @@ export function Slider({ imageUrl }: Props) {
                 resizeMode={'contain'}
               />
               <ContainerTitle>
-                <Title>%%%%%%%%%%%%%%%%%%%%%</Title>
+                <Title>{item.title}</Title>
               </ContainerTitle>
               <ContainerSubTitle>
-                <SubTitle>%%%%%%%%%</SubTitle>
+                <SubTitle>{item.subtitle}</SubTitle>
               </ContainerSubTitle>
           </ImageWrapper>
         )}
