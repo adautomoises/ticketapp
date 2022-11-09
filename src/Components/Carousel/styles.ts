@@ -11,12 +11,12 @@ export const Container = styled.View`
 export const ImageWrapper = styled(RectButton)`
   justify-content: center;
   align-items: center;
-  background-color: red;
 `;
 
 export const Image = styled.Image`
   width: ${Dimensions.get('screen').width}px;
-  height: ${RFValue(230)}px;
+  height: ${RFValue(269)}px;
+  opacity: 0.5;
 `;
 
 export const ImageIndexes = styled.View`
@@ -53,23 +53,34 @@ export const IconScrollRight = styled(Feather)`
 `;
 
 export const ContainerTitle = styled.View`
-  top: 25%;
+  width: ${RFValue(300)}px;
+
+  justify-content: center;
+  align-items: center;
+
+  top: 40%;
   position: absolute;
 `;
 
 export const ContainerSubTitle = styled.View`
-  top: 40%;
+  width: ${RFValue(300)}px;
+
+  justify-content: center;
+  align-items: center;
+
+  top: 25%;
   position: absolute;
 `;
 
 export const Title = styled.Text`
   font-family: ${({theme}) => theme.fonts.Poppins_400};
   color: ${({theme}) => theme.colors.Gray_Black};
-  font-size: ${RFValue(12)}px;
+  font-size: ${RFValue(40)}px;
+  text-align: center;
 `;
 
 export const SubTitle = styled.Text`
   font-family: ${({theme}) => theme.fonts.Poppins_400};
   color: ${({theme}) => theme.colors.Gray_Black};
-  font-size: ${RFValue(24)}px;
+  font-size: ${RFValue(16)}px;
 `;

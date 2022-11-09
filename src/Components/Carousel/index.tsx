@@ -28,6 +28,8 @@ type Props = {
   images: {
     id: string;
     photo: string;
+    title: string;
+    subtitle?: string;
   }[];
 };
 
@@ -37,7 +39,7 @@ export function Carousel({ images } : Props){
   const animation = React.useRef(new Animated.Value(0));
   const [ currentImage, setCurrentImage ] = React.useState(0);
 
-  const handleAnimationLeft = () => {
+  function handleAnimationLeft() {
     let newCurrentImage = currentImage - 1;
 
     if(newCurrentImage < 0){
@@ -52,7 +54,7 @@ export function Carousel({ images } : Props){
     setCurrentImage(newCurrentImage);
   };
 
-  const handleAnimationRight = () => {
+  function handleAnimationRight() {
     let newCurrentImage = currentImage + 1;
 
     if (newCurrentImage >= images.length) {
@@ -67,6 +69,13 @@ export function Carousel({ images } : Props){
     setCurrentImage(newCurrentImage);
   };
 
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      handleAnimationRight();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [handleAnimationRight]);
+
   return (
       <Container>
         <Animated.View
@@ -79,16 +88,16 @@ export function Carousel({ images } : Props){
           {images.map(
             (item) => (
               <ImageWrapper key={item.id}>
-                <Image 
-                  key={item.id}
-                  source={{uri: item.photo}} 
-                  style={styles.image} 
-                />
+                  <Image 
+                    key={item.id}
+                    source={{uri: item.photo}} 
+                    style={styles.image}
+                    />
                 <ContainerTitle>
-                  <Title>%TEXTO DE EXEMPLO%</Title>
+                  <Title>{item.title}</Title>
                 </ContainerTitle>
                 <ContainerSubTitle>
-                  <SubTitle>%TEXTO DE EXEMPLO%</SubTitle>
+                  <SubTitle>{item.subtitle}</SubTitle>
                 </ContainerSubTitle>
               </ImageWrapper>
           ))}
