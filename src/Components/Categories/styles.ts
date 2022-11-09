@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
-import { BorderlessButton } from 'react-native-gesture-handler';
+import { RectButton } from 'react-native-gesture-handler';
 import { RFValue } from 'react-native-responsive-fontsize';
 
 export const Container = styled.View`
@@ -13,7 +13,7 @@ export const Container = styled.View`
   margin-right: 16px;
 `;
 
-export const Category = styled.View`
+export const Category = styled(RectButton)`
   width: ${RFValue(104)}px;
   height: ${RFValue(104)}px;
 
@@ -25,7 +25,7 @@ export const Category = styled.View`
   margin-bottom: 13px;
 `;
 
-export const CategoryButton = styled(BorderlessButton)``;
+export const CategoryButton = styled.View``;
 
 export const Icon = styled(Feather)`
   color: ${({theme}) => theme.colors.Gray_Black};;

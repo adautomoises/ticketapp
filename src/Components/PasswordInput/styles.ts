@@ -6,22 +6,23 @@ interface Props {
   isFocused: boolean;
 }
 
-export const Container = styled.View`
+export const Container = styled.View<Props>`
   flex-direction: row;
-
   margin-bottom: 8px;
+  border-bottom-width: 0.5px;
 `;
 
 export const IconContainer = styled.View<Props>`
-  width: 55px;
-  height: 56px;
+  width: 48px;
+  height: 60px;
 
   justify-content: center;
   align-items: center;
 
-  margin-right: 2px;
+  /* margin-right: 2px; */
 
   background-color: white;
+  
 
   ${({theme, isFocused}) => isFocused && css`
     border-bottom-width: 2px;
@@ -30,14 +31,15 @@ export const IconContainer = styled.View<Props>`
 `;
 
 export const IconContainerPassword = styled.View<Props>`
-  width: 55px;
-  height: 56px;
+  width: 48px;
+  height: 60px;
 
   justify-content: center;
   align-items: center;
 
   background-color: white;
   
+
   ${({theme, isFocused}) => isFocused && css`
     border-bottom-width: 2px;
     border-bottom-color: ${theme.colors.Blue_5};
@@ -49,9 +51,8 @@ export const InputText = styled(TextInput)<Props>`
 
   color: ${({theme}) => theme.colors.Gray_Dark};
   font-family: ${({theme}) => theme.fonts.Poppins_400};
-  font-size: ${RFValue(15)}px;
+  font-size: ${RFValue(14)}px;
 
-  padding: 0 23px;
   background-color: white;
 
   ${({theme, isFocused}) => isFocused && css`

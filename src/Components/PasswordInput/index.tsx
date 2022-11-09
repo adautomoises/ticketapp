@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInputProps } from 'react-native';
+import { TextInputProps, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useTheme } from 'styled-components';
 import { BorderlessButton } from 'react-native-gesture-handler';
@@ -41,7 +41,9 @@ export function PasswordInput({
   }
 
   return (
-    <Container>
+    <Container 
+      // style={styles.DropShadow}
+    >
       <IconContainer isFocused={isFocused}>
         <Feather 
           name={iconName}
@@ -49,13 +51,13 @@ export function PasswordInput({
           color={ (isFocused || isFilled) ? theme.colors.Blue_5 : theme.colors.Gray_Black}
         />
       </IconContainer>
+
       <InputText {...rest}
         isFocused={isFocused}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
         secureTextEntry={isPasswordVisible}
         autoCorrect={false}
-        {...rest}
       />
 
       <BorderlessButton
@@ -67,10 +69,17 @@ export function PasswordInput({
           <Feather
             name={isPasswordVisible ? 'eye' : 'eye-off'}
             size={24}
-            color={theme.colors.Gray_Black}
+            color={ (isFocused) ? theme.colors.Blue_5 : theme.colors.Gray_Black}
           />
         </IconContainerPassword>
       </BorderlessButton>
     </Container>
   );
 }
+
+const styles = StyleSheet.create({
+  DropShadow: {
+    elevation: 8,
+    shadowColor: 'black',
+  }
+}); 

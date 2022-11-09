@@ -29,7 +29,7 @@ export function Categories({ name, icon }: Props){
 
 const styles = StyleSheet.create({
   DropShadow: {
-    elevation: 4,
+    elevation: 12,
     shadowColor: 'black'
   }
 });

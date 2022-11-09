@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInputProps } from 'react-native';
+import { TextInputProps, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useTheme } from 'styled-components';
 
@@ -12,13 +12,11 @@ import {
 interface InputProps extends TextInputProps {
   iconName: React.ComponentProps<typeof Feather>['name'];
   value?: string;
-  firstValue?: string;
 }
 
 export function Input({
   iconName,
   value,
-  firstValue,
   ...rest
 }: InputProps){
   const theme = useTheme();
@@ -35,7 +33,9 @@ export function Input({
   }
   
   return (
-    <Container>
+    <Container 
+      // style={styles.DropShadow}
+    >
       <IconContainer
         isFocused={isFocused}
       >
@@ -46,7 +46,6 @@ export function Input({
         />
       </IconContainer>
       <InputText {...rest}
-        value={firstValue}
         isFocused={isFocused}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
@@ -54,3 +53,10 @@ export function Input({
     </Container>
   );
 }
+
+const styles = StyleSheet.create({
+  DropShadow: {
+    elevation: 8,
+    shadowColor: 'black',
+  }
+}); 

@@ -2,7 +2,6 @@ import styled from 'styled-components/native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native';
 
 interface Color {
   id: string;
@@ -12,6 +11,7 @@ export const Container = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false
 })`
   background-color: white;
+  padding-top: 16px;
 `;
 
 export const Header = styled.View`
@@ -64,12 +64,12 @@ export const CategoriesHeaderTitle = styled.Text`
   color: ${({theme}) => theme.colors.Gray_Black};;
 `;
 
-export const CategoriesViewAllButton = styled(TouchableOpacity)``;
+export const CategoriesViewAllButton = styled.TouchableOpacity``;
 
 export const CategoriesViewAllTitle = styled.Text`
   font-family: ${({theme}) => theme.fonts.Poppins_600};
   font-size: ${RFValue(15)}px;
-  color: ${({theme}) => theme.colors.Blue_1};;
+  color: ${({theme}) => theme.colors.Blue_1};
 `;
 
 export const CategoriesViewAll = styled.ScrollView.attrs({
